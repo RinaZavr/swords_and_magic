@@ -11,7 +11,7 @@ import 'package:swords_and_magic/swords_and_magic.dart';
 /// Выход из игры
 void exitGame() {
   // Создаем файл
-  final file = File(playerEntityJson);
+  final file = File(PlayerConst.playerEntityJson);
   // Создаем json из playerEntity
   final json = jsonEncode(playerEntity);
   try {

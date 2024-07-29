@@ -32,8 +32,8 @@ void _game() {
     // Проверяем наличие сохранений, пытаемся загрузить игру
     if (loadGame()) {
       // Если загрузка прошла успешно, выводим сообщение
-      print('${playerEntity[playerName]} Добро в мир Меча и Магии');
-      print('Ваш класс ${playerEntity[playerClass]}');
+      print('${playerEntity[PlayerConst.playerName]} Добро в мир Меча и Магии');
+      print('Ваш класс ${playerEntity[PlayerConst.playerClass]}');
       // Запускаем ядро игры
       gameCore();
     } else {

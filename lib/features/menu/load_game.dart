@@ -7,7 +7,7 @@ import 'package:swords_and_magic/features/player/player_entity.dart';
 /// Загрузка игры
 bool loadGame() {
   // Создаем файл
-  final file = File(playerEntityJson);
+  final file = File(PlayerConst.playerEntityJson);
   try {
     // Читаем json из файла
     final json = file.readAsStringSync();

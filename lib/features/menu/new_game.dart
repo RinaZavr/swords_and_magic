@@ -23,8 +23,8 @@ void newGame() {
 
   initPlayer(inPlayerName: name ?? '', inPlayerClass: typeHero ?? '');
 
-  print('${playerEntity[playerName]} Добро в мир Меча и Магии');
-  print('Ваш класс ${playerEntity[playerClass]}');
+  print('${playerEntity[PlayerConst.playerName]} Добро в мир Меча и Магии');
+  print('Ваш класс ${playerEntity[PlayerConst.playerClass]}');
   // Запускаем ядро игры
   gameCore();
 }

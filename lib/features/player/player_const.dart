@@ -1,13 +1,15 @@
-const String playerName = 'player_name';
-const String playerClass = 'player_class';
-const String power = 'power';
-const String magic = 'magic';
-const String protection = 'protection';
-const String lives = 'lives';
-const String mana = 'mana';
-const String spells = 'spells';
-const String warriorClass = 'Warrior';
-const String magicClass = 'Magic';
-const String paladinClass = 'Паладин';
+class PlayerConst {
+  static const String playerName = 'player_name';
+  static const String playerClass = 'player_class';
+  static const String power = 'power';
+  static const String magic = 'magic';
+  static const String protection = 'protection';
+  static const String lives = 'lives';
+  static const String mana = 'mana';
+  static const String spells = 'spells';
+  static const String warriorClass = 'Warrior';
+  static const String magicClass = 'Magic';
+  static const String paladinClass = 'Паладин';
 
-const String playerEntityJson = 'playerEntityJson.json';
+  static const String playerEntityJson = 'playerEntityJson.json';
+}
