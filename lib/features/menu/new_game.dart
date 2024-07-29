@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:swords_and_magic/features/game_core/game_core.dart';
-import 'package:swords_and_magic/features/player/player_const.dart';
 import 'package:swords_and_magic/features/player/player_entity.dart';
 
 /// Новая игра
@@ -21,10 +20,9 @@ void newGame() {
 ''');
   final typeHero = stdin.readLineSync();
 
-  initPlayer(inPlayerName: name ?? '', inPlayerClass: typeHero ?? '');
+  playerEntity = PlayerEntity.create(inPlayerName: name ?? '', inPlayerClass: typeHero ?? '');
+  print('${playerEntity.playerName} Добро в мир Меча и Магии');
+  print('Ваш класс ${playerEntity.playerClass}');
 
-  print('${playerEntity[PlayerConst.playerName]} Добро в мир Меча и Магии');
-  print('Ваш класс ${playerEntity[PlayerConst.playerClass]}');
-  // Запускаем ядро игры
   gameCore();
 }

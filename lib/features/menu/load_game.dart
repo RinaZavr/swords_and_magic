@@ -14,7 +14,7 @@ bool loadGame() {
     // Получаем Map из json
     final data = jsonDecode(json) as Map<String, dynamic>;
     // Добавляем полученный Map в playerEntity
-    playerEntity.addAll(data);
+    playerEntity = PlayerEntity.fromJson(data);
     print("Игра успешно загружена...");
     // Возвращаем true при успешной загрузке
     return true;

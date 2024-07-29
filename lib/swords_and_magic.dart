@@ -4,7 +4,6 @@ import 'package:swords_and_magic/features/game_core/game_core.dart';
 import 'package:swords_and_magic/features/menu/load_game.dart';
 import 'package:swords_and_magic/features/menu/exit_game.dart';
 import 'package:swords_and_magic/features/menu/new_game.dart';
-import 'package:swords_and_magic/features/player/player_const.dart';
 import 'package:swords_and_magic/features/player/player_entity.dart';
 
 bool isRunGame = true;
@@ -32,8 +31,8 @@ void _game() {
     // Проверяем наличие сохранений, пытаемся загрузить игру
     if (loadGame()) {
       // Если загрузка прошла успешно, выводим сообщение
-      print('${playerEntity[PlayerConst.playerName]} Добро в мир Меча и Магии');
-      print('Ваш класс ${playerEntity[PlayerConst.playerClass]}');
+      print('${playerEntity.playerName} Добро в мир Меча и Магии');
+      print('Ваш класс ${playerEntity.playerClass}');
       // Запускаем ядро игры
       gameCore();
     } else {

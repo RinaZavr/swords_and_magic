@@ -13,7 +13,7 @@ void exitGame() {
   // Создаем файл
   final file = File(PlayerConst.playerEntityJson);
   // Создаем json из playerEntity
-  final json = jsonEncode(playerEntity);
+  final json = jsonEncode(playerEntity.toJson());
   try {
     // Записываем json в файл
     file.writeAsString(json);
