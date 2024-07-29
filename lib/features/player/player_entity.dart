@@ -69,8 +69,8 @@ class PlayerEntity implements IEntity {
         return PlayerEntity._(
           lives: 100.0,
           mana: 50.0,
-          playerName: PlayerConst.paladinClass,
-          playerClass: inPlayerName.isEmpty
+          playerClass: PlayerConst.paladinClass,
+          playerName: inPlayerName.isEmpty
               ? 'Paladin${DateTime.now().millisecondsSinceEpoch}'
               : inPlayerName,
           power: 50.0,
@@ -85,8 +85,8 @@ class PlayerEntity implements IEntity {
         return PlayerEntity._(
           lives: 100.0,
           mana: 100.0,
-          playerName: PlayerConst.magicClass,
-          playerClass: inPlayerName.isEmpty
+          playerClass: PlayerConst.magicClass,
+          playerName: inPlayerName.isEmpty
               ? 'Magical${DateTime.now().millisecondsSinceEpoch}'
               : inPlayerName,
           power: 0.0,
@@ -103,8 +103,8 @@ class PlayerEntity implements IEntity {
         return PlayerEntity._(
           lives: 100.0,
           mana: 0,
-          playerName: PlayerConst.warriorClass,
-          playerClass: inPlayerName.isEmpty
+          playerClass: PlayerConst.warriorClass,
+          playerName: inPlayerName.isEmpty
               ? 'Warrior${DateTime.now().millisecondsSinceEpoch}'
               : inPlayerName,
           power: 100.0,
