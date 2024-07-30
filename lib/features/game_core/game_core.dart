@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:swords_and_magic/features/player/player_const.dart';
@@ -10,6 +11,8 @@ final class GameCore {
     required this.playerEntity,
   });
 
+  late final StreamSubscription<String> subscription;
+
   startGame() {
     print("Игра началась...");
 
@@ -17,13 +20,12 @@ final class GameCore {
         '${playerEntity?.playerName} Добро в мир Меча и Магии'); // Обращение через класс
     print('Ваш класс ${playerEntity?.playerClass}'); // Обращение через класс
 
-    // Считываем данные из консоли
-    final inputData = stdin.readLineSync();
-
-    // Если введена команда exit, выходим из игры
-    if (inputData == 'exit' || inputData == null || inputData.isEmpty) {
-      exitGame();
-    }
+    subscription = stdin.transform(utf8.decoder).listen((event) {
+      if (event.contains('exit')) {
+        subscription.cancel();
+        exitGame();
+      }
+    });
   }
 
   void exitGame() async {
@@ -41,6 +43,7 @@ final class GameCore {
       print("Ошибка сохранения: $error, $stackTrace");
     });
     print('Выходим из игры...');
+    exit(0);
   }
 
   void loadGame() async {
