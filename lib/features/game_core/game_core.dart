@@ -26,43 +26,42 @@ final class GameCore {
     }
   }
 
-  void exitGame() {
+  void exitGame() async {
     // Создаем файл
     final file = File(PlayerConst.playerEntityJson);
     // Создаем json из playerEntity
     final json = jsonEncode(playerEntity?.toJson());
-    try {
-      // Записываем json в файл
-      file.writeAsString(json);
-      // Выводим сообщение о успешном сохранении
+    print("Игра сохраняется...");
+    // Записываем json в файл
+    await file.writeAsString(json).then((_) {
+// Выводим сообщение о успешном сохранении
       print("Игра успешно сохранена");
-    } on Object catch (err, st) {
+    }).onError((error, stackTrace) {
       // Выводим сообщение об ошибке
-      print("Ошибка сохранения: $err, $st");
-    }
-
+      print("Ошибка сохранения: $error, $stackTrace");
+    });
     print('Выходим из игры...');
-    // Завершаем игру, присваиваем переменной [isRunGame] значение false
   }
 
-  void loadGame() {
+  void loadGame() async {
     // Создаем файл
     final file = File(PlayerConst.playerEntityJson);
-    try {
-      // Читаем json из файла
-      final json = file.readAsStringSync();
-      // Получаем Map из json
-      final data = jsonDecode(json) as Map<String, dynamic>;
-      // Добавляем полученный Map в playerEntity
-      playerEntity = PlayerEntity.fromJson(data);
-      print("Игра успешно загружена...");
-      // Возвращаем true при успешной загрузке
-      startGame();
-    } catch (_) {
+    // Читаем json из файла
+    await file.readAsString().then(
+      (value) {
+        // Получаем Map из json
+        final data = jsonDecode(value) as Map<String, dynamic>;
+        // Добавляем полученный Map в playerEntity
+        playerEntity = PlayerEntity.fromJson(data);
+        print("Игра успешно загружена...");
+        // Возвращаем true при успешной загрузке
+        startGame();
+      },
+    ).onError((error, stackTrace) {
       // Возвращаем false при ошибке или при отсутствии сохранений
       print("Отсутствуют сохранения");
       newGame();
-    }
+    });
   }
 
   void newGame() {
